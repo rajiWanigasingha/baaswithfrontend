@@ -27,7 +27,7 @@
 1. System shall validate user inputs according to [SR_SECURITY-01.1](./SR-SECURITY-01.1.md) and [SR_SECURITY-01.2](./SR-SECURITY-01.2.md).
    - If validation failed, System shall output `Validate Error`
 2. System shall check if super-user exist from an environment variable called `SUPER_USER`, if `SUPER_USER` doesn't
-exist system shall output `Forbidden access error`
+exist system shall output `Forbidden access error`, `SUPER_USER` environment variable shall be stored in the platform (Linux) system will run pone.
 3. System shall create new super-user in adminUser table, then create `SUPER_USER` environment variable.
 
 **Requirements**
