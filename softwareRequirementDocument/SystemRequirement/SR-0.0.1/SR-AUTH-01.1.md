@@ -33,7 +33,7 @@ exist system shall output `Forbidden access error`, `SUPER_USER` environment var
 **Requirements**
 
 - Email and a password
-- Password must be stored encrypted
+- Password must be stored hashed
 
 **Side effects**
 

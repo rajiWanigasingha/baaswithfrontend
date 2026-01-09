@@ -2,7 +2,9 @@
 
 ---
 
-## For Project Backend-As-A-Service
+## For Project Backend-Services-Integration-System
+
+- A server that have integration with other services but can provide that to external applications
 
 
 | Version            | dev-0.0.1            |
