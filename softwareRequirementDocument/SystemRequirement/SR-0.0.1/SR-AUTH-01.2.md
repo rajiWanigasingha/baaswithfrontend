@@ -3,11 +3,11 @@
 | Author | Rajinda Wanigasingha |
 | Date   | 2025/01/09           |
 
-## Create first super-user
+## Login to the system
 
 **Description**
 
-- System shall use a one-time function to create a single super-user with a valid email and a password
+- System shall login/give access to any user with valid email address and a password if both exist in the adminUser table.
 
 **Inputs**
 
@@ -19,21 +19,21 @@
 - JWT token
 - User details : user-name, user-id ,user-role
 - Unauthorized error : If email or password incorrect of doesn't exist
-- Forbidden access error : If super-user already exist
 - Validate error : If validation fails.
+- User doesn't exist : If user can't be found
 
 **Action**
 
 1. System shall validate user inputs according to [SR_SECURITY-01.1](./SR-SECURITY-01.1.md) and [SR_SECURITY-01.2](./SR-SECURITY-01.2.md).
-   - If validation failed, System shall output `Validate Error`
-2. System shall check if super-user exist from an environment variable called `SUPER_USER`, if `SUPER_USER` doesn't
-exist system shall output `Forbidden access error`
-3. System shall create new super-user in adminUser table, then create `SUPER_USER` environment variable.
+    - If validation failed, System shall output `Validate Error`
+2. System shall check if provided email exist in adminUser table, if not system shall output `User doesn't exist` error
+3. If email exist, system shall check if password match between input password and stored password. 
+4. System shall decrypted stored password to validate input password, but not in any way edit the password
+5. If validation is successful system shall output JWT token and User-details
 
 **Requirements**
 
 - Email and a password
-- Password must be stored encrypted
 
 **Side effects**
 
